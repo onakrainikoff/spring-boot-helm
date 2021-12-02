@@ -1,0 +1,22 @@
+nameOverride: ""
+fullnameOverride: ""
+
+backend:
+  deployment:
+    replicaCount: 2
+    image:
+      pullPolicy: IfNotPresent
+      tag: ""
+  service:
+    port: 80
+  ingress:
+    className: "nginx"
+    hosts:
+      - host: localhost
+        paths:
+          - path: /
+  config:
+    db:
+      url: jdbc:postgresql://postgres-postgresql:5432/postgres
+      username: postgres
+      password: postgres

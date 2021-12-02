@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+  namespace: default
+data:
+  application.yml: |-
+    db:
+      jdbcUrl: {{ .Values.backend.config.db.url }}
+      username: {{ .Values.backend.config.db.username }}
+      password: {{ .Values.backend.config.db.password }}
+      driverClassName: 'org.postgresql.Driver'
+      minimumIdle: 5
+      maximumPoolSize: 10
+      connectionTimeout: 10000
+      validationTimeout: 5000
+      connectionTestQuery: 'SELECT 1'

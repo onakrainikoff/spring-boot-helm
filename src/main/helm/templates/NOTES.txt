@@ -1,0 +1,6 @@
+1. Get the application URL by running these commands:
+{{- range $host := .Values.backend.ingress.hosts }}
+  {{- range .paths }}
+  http://{{ $host.host }}{{ .path }}
+  {{- end }}
+{{- end }}
