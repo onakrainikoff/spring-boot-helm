@@ -15,3 +15,14 @@ data:
       connectionTimeout: 10000
       validationTimeout: 5000
       connectionTestQuery: 'SELECT 1'
+    management:
+      endpoint:
+        health:
+          show-details: always
+          probes:
+            enabled: true
+
+      endpoints:
+        web:
+          exposure:
+            include: "info,health"
